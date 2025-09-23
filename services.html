@@ -3,6 +3,176 @@
 <head>
   <meta charset="UTF-8">
   <title>СтройФАК — Услуги</title>
+  <style>
+    /* Глобальные стили */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      background-color: #f5f7fa;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    /* Связанные стили — все стили ниже подключены через <style> в head (внешние по отношению к тегам) */
+    header {
+      padding: 2rem 1rem;
+      background: #570202;
+      color: #f2eee6;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: -1px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Горизонтальное меню — создано исключительно через CSS */
+    nav {
+      text-align: center;
+      padding: 1rem 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+
+    nav a {
+      color: #2c3e50;
+      text-decoration: none;
+      padding: 0.8rem 1.8rem;
+      margin: 0 0.3rem;
+      border-radius: 6px;
+      display: inline-block;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    nav a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: #570202;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::before,
+    nav a:focus::before {
+      width: 100%;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background-color: #570202;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(87, 2, 2, 0.3);
+      color: #f2eee6;
+    }
+
+    nav a:active {
+      transform: translateY(0);
+    }
+
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #570202;
+      margin: 2.5rem 0 1.5rem;
+      position: relative;
+      padding-bottom: 0.8rem;
+    }
+
+    section h2::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: linear-gradient(90deg, #570202, #3a1515);
+      margin: 0.5rem auto;
+      border-radius: 2px;
+    }
+
+    /* Псевдоэлемент для первой буквы заголовка */
+    section h2::first-letter {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #570202;
+      float: left;
+      line-height: 0.8;
+      margin-right: 0.3rem;
+      padding-top: 0.1rem;
+    }
+
+    /* Селектор по тегу + класс */
+    ul, ol {
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+
+    ul li,
+    ol li {
+      margin-bottom: 0.8rem;
+      position: relative;
+      padding-left: 1.2rem;
+    }
+
+    /* Псевдоклассы и псевдоэлементы для списков */
+    ul li::before {
+      content: '•';
+      color: #570202;
+      font-size: 1.5rem;
+      position: absolute;
+      left: 0;
+      top: -0.1rem;
+    }
+
+    ol li::before {
+      content: counter(item) '.';
+      counter-increment: item;
+      color: #570202;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    /* Идентификатор для уникального элемента */
+    #price-section {
+      background-color: #f9f9f9;
+      padding: 1.8rem;
+      border-radius: 10px;
+      border-left: 5px solid #570202;
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    /* Селектор по атрибуту */
+    [data-highlight] {
+      color: #570202;
+      font-weight: 700;
+    }
+  </style>
 </head>
 <body>
 
@@ -11,9 +181,9 @@
   </header>
 
   <nav>
-    <a href="index.html">Главная</a> |
-    <a href="projects.html">Проекты</a> |
-    <a href="services.html">Услуги</a> |
+    <a href="index.html">Главная</a>
+    <a href="projects.html">Проекты</a>
+    <a href="services.html">Услуги</a>
     <a href="contacts.html">Контакты</a>
   </nav>
 
@@ -35,7 +205,7 @@
     </ol>
 
     <h2>Цены</h2>
-    <p>Стоимость зависит от типа объекта и объёма работ. Средняя цена: от 500 BYN/м²</p>
+    <p id="price-section">Стоимость зависит от типа объекта и объёма работ. <span>Средняя цена: от 500 BYN/м²</span></p>
   </section>
 
 </body>
