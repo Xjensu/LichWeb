@@ -1,0 +1,170 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  background-color: #f5f7fa;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* Селектор по тегу */
+header {
+  padding: 2rem 1rem;
+  background: #570202;
+  color: #f2eee6;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: -1px;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+nav {
+  text-align: center;
+  padding: 1rem 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+nav a {
+  color: #2c3e50;
+  text-decoration: none;
+  padding: 0.8rem 1.8rem;
+  margin: 0 0.3rem;
+  border-radius: 6px;
+  display: inline-block;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+nav a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #570202;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::before,
+nav a:focus::before {
+  width: 100%;
+}
+
+nav a:hover,
+nav a:focus {
+  background-color: #570202;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+  color: #f2eee6;
+}
+
+nav a:active {
+  transform: translateY(0);
+}
+
+/* Селектор по классу */
+.project-img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  margin: 1.5rem auto;
+  display: block;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.3s ease;
+}
+
+.project-img:hover {
+  transform: scale(1.04);
+  filter: brightness(1.05);
+}
+
+/* Селектор по атрибуту */
+img[alt^="Проект"] {
+  border: 1px solid #eee;
+}
+
+/* Селектор по идентификатору */
+#footer-text {
+  font-style: italic;
+  color: #bdc3c7;
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+}
+
+/* Селектор потомка */
+section {
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+section h2 {
+  font-size: 2.2rem;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+/* Псевдоэлемент ::first-letter */
+section p:first-of-type::first-letter {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #171818;
+  float: left;
+  line-height: 0.8;
+  margin-right: 0.3rem;
+  padding-top: 0.1rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Псевдокласс :first-of-type + :last-of-type */
+section p {
+  margin-bottom: 1rem;
+  text-align: justify;
+  color: #555;
+}
+
+section p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Селектор по тегу + класс */
+footer {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  background-color: #570202;
+  color: #f2eee6;
+  margin-top: 2rem;
+}
+
+footer h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 300;
+}
+
+footer p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
