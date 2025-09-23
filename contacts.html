@@ -3,6 +3,227 @@
 <head>
   <meta charset="UTF-8">
   <title>СтройФАК — Контакты</title>
+  <style>
+    /* Глобальные стили */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      background-color: #f5f7fa;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    /* Связанные стили — все стили ниже подключены через <style> */
+    header {
+      padding: 2rem 1rem;
+      background: #570202;
+      color: #f2eee6;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: -1px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Горизонтальное меню — создано исключительно через CSS */
+    nav {
+      text-align: center;
+      padding: 1rem 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+
+    nav a {
+      color: #2c3e50;
+      text-decoration: none;
+      padding: 0.8rem 1.8rem;
+      margin: 0 0.3rem;
+      border-radius: 6px;
+      display: inline-block;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    nav a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: #570202;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::before,
+    nav a:focus::before {
+      width: 100%;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background-color: #570202;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(87, 2, 2, 0.3);
+      color: #f2eee6;
+    }
+
+    nav a:active {
+      transform: translateY(0);
+    }
+
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #570202;
+      margin: 2.5rem 0 1.5rem;
+      position: relative;
+      padding-bottom: 0.8rem;
+    }
+
+    section h2::after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 4px;
+      background: linear-gradient(90deg, #570202, #3a1515);
+      margin: 0.5rem auto;
+      border-radius: 2px;
+    }
+
+    /* Псевдоэлемент для первой буквы заголовка */
+    section h2::first-letter {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #570202;
+      float: left;
+      line-height: 0.8;
+      margin-right: 0.3rem;
+      padding-top: 0.1rem;
+    }
+
+    /* Селектор по тегу + класс */
+    form {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    form label {
+      display: block;
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+      color: #570202;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      outline: none;
+      border-color: #570202;
+      box-shadow: 0 0 0 2px rgba(87, 2, 2, 0.1);
+    }
+
+    form input[type="submit"] {
+      background-color: #570202;
+      color: #f2eee6;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      padding: 0.9rem 2rem;
+      margin-top: 1.5rem;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    form input[type="submit"]:hover {
+      background-color: #3a1515;
+    }
+
+    form input[type="submit"]:active {
+      transform: translateY(1px);
+    }
+
+    /* Идентификатор для уникального элемента */
+    #office-address {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #570202;
+      font-weight: 600;
+      margin-top: 1rem;
+      padding: 1.2rem;
+      background-color: #fff;
+      border: 2px dashed #570202;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    #office-address::before {
+      content: "📍";
+      font-size: 1.5rem;
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* Адаптивность */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      nav a {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+      }
+
+      section h2 {
+        font-size: 1.7rem;
+      }
+
+      form {
+        padding: 1.5rem;
+      }
+
+      #office-address {
+        font-size: 1.1rem;
+        padding: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -11,24 +232,23 @@
   </header>
 
   <nav>
-    <a href="index.html">Главная</a> |
-    <a href="projects.html">Проекты</a> |
-    <a href="services.html">Услуги</a> |
+    <a href="index.html">Главная</a>
+    <a href="projects.html">Проекты</a>
+    <a href="services.html">Услуги</a>
     <a href="contacts.html">Контакты</a>
   </nav>
 
   <section>
     <h2>Форма обратной связи</h2>
     <form>
-      <label>Имя: <input type="text" name="name"></label><br>
-      <label>Email: <input type="email" name="email"></label><br>
-      <label>Сообщение:<br><textarea name="message" rows="5" cols="30"></textarea></label><br>
-      <input type="submit" value="Отправить">
+      <label>Имя: <input type="text" name="name" style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem;"></label><br>
+      <label>Email: <input type="email" name="email" style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem;"></label><br>
+      <label>Сообщение:<br><textarea name="message" rows="5" cols="30" style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem; resize: vertical;"></textarea></label><br>
+      <input type="submit" value="Отправить" style="background-color: #570202; color: #f2eee6; border: none; cursor: pointer; font-weight: 600; padding: 0.9rem 2rem; margin-top: 1.5rem; border-radius: 6px; transition: background-color 0.3s ease;">
     </form>
 
     <h2>Адрес офиса</h2>
-    <p>г. Гомель, ул. Красноармейская, 4</p>
-
+    <p id="office-address" style="text-align: center; font-size: 1.2rem; color: #570202; font-weight: 600; margin-top: 1rem; padding: 1.2rem; background-color: #fff; border: 2px dashed #570202; border-radius: 8px;">г. Гомель, ул. Красноармейская, 4</p>
   </section>
 
 </body>
