@@ -3,34 +3,202 @@
 <head>
   <meta charset="UTF-8">
   <title>СтройФАК — Проекты</title>
+  <style>
+    /* Глобальные стили */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      background-color: #f5f7fa;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    /* Селектор по тегу */
+    header {
+      padding: 2rem 1rem;
+      background: #570202;
+      color: #f2eee6;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: -1px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    /* Горизонтальное меню — ключевой элемент */
+    nav {
+      text-align: center;
+      padding: 1rem 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+
+    nav a {
+      color: #2c3e50;
+      text-decoration: none;
+      padding: 0.8rem 1.8rem;
+      margin: 0 0.3rem;
+      border-radius: 6px;
+      display: inline-block;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    nav a::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: #570202;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::before,
+    nav a:focus::before {
+      width: 100%;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      background-color: #570202;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(87, 2, 2, 0.3);
+      color: #f2eee6;
+    }
+
+    nav a:active {
+      transform: translateY(0);
+    }
+
+    /* Селектор по тегу + класс */
+    section {
+      padding: 3rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-size: 2.2rem;
+      color: #570202;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    section h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #570202, #3a1515);
+      margin: 0.5rem auto;
+      border-radius: 2px;
+    }
+
+    /* Псевдоэлемент для первой буквы заголовка */
+    section h2::first-letter {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #570202;
+      float: left;
+      line-height: 0.8;
+      margin-right: 0.3rem;
+      padding-top: 0.1rem;
+    }
+
+    /* Контейнер для галереи */
+    .figure-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    figure {
+      width: 100%;
+      max-width: 350px;
+      margin-bottom: 2rem;
+      text-align: center;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    figure:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .project-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    figcaption {
+      padding: 1rem;
+      font-size: 1rem;
+      color: #570202;
+      font-weight: 500;
+    }
+
+    /* Псевдокласс :first-of-type для первого figure */
+    figure:first-of-type {
+      border-top: 5px solid #570202;
+    }
+
+    /* Идентификатор для уникального стиля */
+    #main-header {
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
   <header>
-    <h1>Наши проекты</h1>
+    <h1 id="main-header" style="text-align: center;">Наши проекты</h1>
   </header>
 
   <nav>
-    <a href="index.html">Главная</a> |
-    <a href="projects.html">Проекты</a> |
-    <a href="services.html">Услуги</a> |
+    <a href="index.html">Главная</a>
+    <a href="projects.html">Проекты</a>
+    <a href="services.html">Услуги</a>
     <a href="contacts.html">Контакты</a>
   </nav>
 
   <section>
     <h2>Галерея объектов</h2>
-    <figure>
-      <img src="https://lh3.googleusercontent.com/proxy/2sGlZEJxyZ7cTAzg-_XsGWSrfcb1tCASiiFpJI-qgbENTfu-qNJnUcyt-P0CNjr1gJ54KZp9HJq6z0S1IEb_CI3SL0C2gYrDF2xdzDFs4n7hEIodCw" alt="Коттедж в Минске">
-      <figcaption>Коттедж в Минске — 2022 г.</figcaption>
-    </figure>
-    <figure>
-      <img src="https://megapolis-real.by/assets/images/BC/gomel-raton/download.jpg" alt="Офисный центр в Гомеле">
-      <figcaption>Офисный центр в Гомеле — 2023 г.</figcaption>
-    </figure>
-    <figure>
-      <img src="https://equator.by/images/2022/DSC_3065_small0.jpg" alt="Торговый центр в Бресте">
-      <figcaption>Торговый центр в Бресте — 2024 г.</figcaption>
-    </figure>
+    <div class="figure-container">
+      <figure>
+        <img src="https://lh3.googleusercontent.com/proxy/2sGlZEJxyZ7cTAzg-_XsGWSrfcb1tCASiiFpJI-qgbENTfu-qNJnUcyt-P0CNjr1gJ54KZp9HJq6z0S1IEb_CI3SL0C2gYrDF2xdzDFs4n7hEIodCw" alt="Коттедж в Минске" class="project-img">
+        <figcaption>Коттедж в Минске — 2022 г.</figcaption>
+      </figure>
+      <figure>
+        <img src="https://megapolis-real.by/assets/images/BC/gomel-raton/download.jpg" alt="Офисный центр в Гомеле" class="project-img">
+        <figcaption>Офисный центр в Гомеле — 2023 г.</figcaption>
+      </figure>
+      <figure>
+        <img src="https://equator.by/images/2022/DSC_3065_small0.jpg" alt="Торговый центр в Бресте" class="project-img">
+        <figcaption>Торговый центр в Бресте — 2024 г.</figcaption>
+      </figure>
+    </div>
   </section>
 
 </body>
