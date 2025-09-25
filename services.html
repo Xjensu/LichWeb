@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>СтройФАК — Услуги</title>
   <style>
-    /* Глобальные стили */
     * {
       margin: 0;
       padding: 0;
@@ -22,110 +21,65 @@
       color: #333;
     }
 
-    /* Связанные стили — все стили ниже подключены через <style> в head (внешние по отношению к тегам) */
     header {
       padding: 2rem 1rem;
       background: #570202;
       color: #f2eee6;
-      text-align: center;
     }
 
     header h1 {
       font-size: 2rem;
       font-weight: 300;
-      letter-spacing: -1px;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      color: #f2eee6;
+      text-align: center;
+      margin-bottom: 10px;
     }
 
-    /* Горизонтальное меню — создано исключительно через CSS */
     nav {
       text-align: center;
-      padding: 1rem 0;
+      padding: 20px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
       position: relative;
+      background-color: #ffffff;
     }
 
     nav a {
       color: #2c3e50;
       text-decoration: none;
-      padding: 0.8rem 1.8rem;
-      margin: 0 0.3rem;
-      border-radius: 6px;
-      display: inline-block;
+      padding: 2px;
       font-weight: 500;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
+      margin: 0 10px;
+      display: inline-block;
+      font-size: 16px;
     }
 
-    nav a::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 3px;
-      background-color: #570202;
-      transition: width 0.3s ease;
-    }
-
-    nav a:hover::before,
-    nav a:focus::before {
-      width: 100%;
-    }
-
-    nav a:hover,
-    nav a:focus {
-      background-color: #570202;
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(87, 2, 2, 0.3);
-      color: #f2eee6;
-    }
-
-    nav a:active {
-      transform: translateY(0);
-    }
-
-    section {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-
-    section h2 {
-      font-size: 2rem;
+    nav a:hover {
       color: #570202;
-      margin: 2.5rem 0 1.5rem;
-      position: relative;
-      padding-bottom: 0.8rem;
     }
 
-    section h2::after {
-      content: '';
-      display: block;
-      width: 70px;
-      height: 4px;
-      background: linear-gradient(90deg, #570202, #3a1515);
-      margin: 0.5rem auto;
-      border-radius: 2px;
+    .content {
+      padding: 3rem 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    /* Псевдоэлемент для первой буквы заголовка */
-    section h2::first-letter {
-      font-size: 2.5rem;
-      font-weight: bold;
+    .content h2 {
+      font-size: 2.2rem;
       color: #570202;
-      float: left;
-      line-height: 0.8;
-      margin-right: 0.3rem;
-      padding-top: 0.1rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      letter-spacing: 1px;
+      margin-top: 30px;
     }
 
-    /* Селектор по тегу + класс */
     ul, ol {
       padding-left: 1.5rem;
       margin-bottom: 2rem;
       color: #555;
+      list-style-type: disc;
+      font-size: 18px;
     }
 
     ul li,
@@ -133,45 +87,63 @@
       margin-bottom: 0.8rem;
       position: relative;
       padding-left: 1.2rem;
+      color: #333;
+      font-size: 16px;
+      line-height: 1.5;
     }
 
-    /* Псевдоклассы и псевдоэлементы для списков */
-    ul li::before {
-      content: '•';
-      color: #570202;
-      font-size: 1.5rem;
-      position: absolute;
-      left: 0;
-      top: -0.1rem;
+    p {
+      font-size: 16px;
+      color: #333;
+      text-align: center;
+      margin: 20px auto;
+      width: 80%;
     }
 
-    ol li::before {
-      content: counter(item) '.';
-      counter-increment: item;
+    span {
       color: #570202;
       font-weight: bold;
-      position: absolute;
-      left: 0;
-      top: 0;
     }
-
-    /* Идентификатор для уникального элемента */
-    #price-section {
-      background-color: #f9f9f9;
-      padding: 1.8rem;
-      border-radius: 10px;
-      border-left: 5px solid #570202;
-      margin-top: 2rem;
-      text-align: center;
-      font-size: 1.2rem;
-      font-weight: 500;
-    }
-
-    /* Селектор по атрибуту */
-    [data-highlight] {
+    h2 {
       color: #570202;
-      font-weight: 700;
+      font-size: 2.2rem;
     }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+    }
+
+    header {
+      background: #570202;
+      color: #f2eee6;
+    }
+
+    nav a {
+      font-weight: 500;
+      padding: 2px;
+      color: #2c3e50;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+
+    ol {
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
   </style>
 </head>
 <body>
@@ -187,7 +159,7 @@
     <a href="contacts.html">Контакты</a>
   </nav>
 
-  <section>
+  <div class="content">
     <h2>Перечень услуг</h2>
     <ul>
       <li>Строительство под ключ</li>
@@ -205,8 +177,8 @@
     </ol>
 
     <h2>Цены</h2>
-    <p id="price-section">Стоимость зависит от типа объекта и объёма работ. <span>Средняя цена: от 500 BYN/м²</span></p>
-  </section>
+    <p>Стоимость зависит от типа объекта и объёма работ. <span>Средняя цена: от 500 BYN/м²</span></p>
+  </div>
 
 </body>
 </html>
