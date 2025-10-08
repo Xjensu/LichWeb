@@ -3,29 +3,116 @@
 <head>
   <meta charset="UTF-8">
   <title>СтройФАК — Контакты</title>
-</head>
-<body style="color: #333; margin: 0;">
+  <style>
+    nav {
+      text-align: center;
+      padding: 1rem 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      position: relative;
+      background-color: #ffffff;
+    }
 
-  <header style="background: #570202; color: #f2eee6; padding: 20px 20px;">
+    nav a {
+      color: #2c3e50;
+      text-decoration: none;
+      padding: 0.8rem 1.8rem;
+      margin: 0 0.3rem;
+      border-radius: 6px;
+      display: inline-block;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background-color: #570202;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    nav a:hover {
+      color: #570202;
+    }
+
+    nav a:hover::after {
+      width: 80%;
+    }
+
+    /* Адаптивная обёртка для карты */
+    .map-wrapper {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+      height: 0;
+      padding-bottom: 56.25%; /* 16:9 */
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .map-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body style="color: #333; margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f5f7fa;">
+
+  <header style="background: #570202; color: #f2eee6; padding: 20px 20px; text-align: center;">
     <h1 style="color: #f2eee6;">Свяжитесь с нами</h1>
   </header>
 
-  <nav style="text-align: center; padding: 20px; position: relative; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);">
-    <a href="index.html" style="color: #2c3e50; text-decoration: none; padding: 20px; font-weight: 500;">Главная</a>
-    <a href="projects.html" style="color: #2c3e50; text-decoration: none; padding: 20px; font-weight: 500;">Проекты</a>
-    <a href="services.html" style="color: #2c3e50; text-decoration: none; padding: 20px; font-weight: 500;">Услуги</a>
-    <a href="contacts.html" style="color: #2c3e50; text-decoration: none; padding: 20px; font-weight: 500;">Контакты</a>
+  <nav>
+    <a href="index.html">Главная</a>
+    <a href="projects.html">Проекты</a>
+    <a href="services.html">Услуги</a>
+    <a href="contacts.html">Контакты</a>
   </nav>
 
-  <h2 style="color: #570202; margin: 25px; padding-bottom: 8px;">Форма обратной связи</h2>
-  <form style="background: #f9f9f9; padding: 2rem; border-radius: 12px; margin-bottom: 20px;">
-    <label style="margin-bottom: 8px; font-weight: 500;color: #570202;">Имя: <input type="text" name="name" style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem;"></label><br>
-    <label>Email: <input type="email" name="email" style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem;"></label><br>
-    <label>Сообщение:<br><textarea name="message" rows="5" cols="30" style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem; resize: vertical;"></textarea></label><br>
-    <input type="submit" value="Отправить" style="background-color: #570202; color: #f2eee6; border: none; font-weight: 600; padding: 9px; margin-top: 15px;">
-  </form>
-  <h2>Адрес офиса</h2>
-  <p id="office-address" style="text-align: center; font-size: 1.2rem; color: #570202; font-weight: 600; margin-top: 1rem; padding: 1.2rem; background-color: #fff; border: 2px dashed #570202; border-radius: 8px;">г. Гомель, ул. Красноармейская, 4</p>
+  <div style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
+    <h2 style="color: #570202; margin: 25px 0 15px; padding-bottom: 8px; text-align: center;">Форма обратной связи</h2>
+    <form style="background: #f9f9f9; padding: 2rem; border-radius: 12px; margin-bottom: 20px;">
+      <label style="display: block; margin-bottom: 16px; font-weight: 500; color: #570202;">
+        Имя: 
+        <input type="text" name="name" style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem;">
+      </label>
+      <label style="display: block; margin-bottom: 16px;">
+        Email: 
+        <input type="email" name="email" style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem;">
+      </label>
+      <label style="display: block; margin-bottom: 16px;">
+        Сообщение:<br>
+        <textarea name="message" rows="5" style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem; resize: vertical;"></textarea>
+      </label>
+      <input type="submit" value="Отправить" style="background-color: #570202; color: #f2eee6; border: none; font-weight: 600; padding: 9px 24px; margin-top: 15px; border-radius: 6px; cursor: pointer;">
+    </form>
+
+    <!-- Карта -->
+    <div class="map-wrapper">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2277.823234852142!2d30.978352376225586!3d52.43550037185043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46d9e4c2a8e0e0e1%3A0x4c6a8b5f5c5b5c5b!2z0YPQu9C40YbQsCDQnNC-0YHQutCy0LA!5e0!3m2!1sru!2sby!4v1712345678901!5m2!1sru!2sby" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <h2 style="color: #570202; text-align: center; margin: 2rem 0 1rem;">Адрес офиса</h2>
+    <p id="office-address" style="text-align: center; font-size: 1.2rem; color: #570202; font-weight: 600; margin-top: 1rem; padding: 1.2rem; background-color: #fff; border: 2px dashed #570202; border-radius: 8px;">
+      г. Гомель, ул. Красноармейская, 4
+    </p>
+  </div>
 
 </body>
 </html>

@@ -52,26 +52,42 @@
       border-radius: 6px;
       display: inline-block;
       font-weight: 500;
-      transition: all 0.3s ease;
+      transition: color 0.3s ease;
       position: relative;
       overflow: hidden;
+    }
+
+    /* Анимированное подчёркивание */
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background-color: #570202;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
     }
 
     nav a:hover {
       color: #570202;
     }
 
-    section {
+    nav a:hover::after {
+      width: 80%;
+    }
+
+    .content {
       padding: 3rem 1rem;
       max-width: 1200px;
       margin: 0 auto;
     }
 
-    section h2 {
+    .content h2 {
       font-size: 2.2rem;
       color: #570202;
       margin-bottom: 2.5rem;
-      position: relative;
       text-align: center;
       font-family: Arial, sans-serif;
       letter-spacing: 1px;
@@ -85,95 +101,44 @@
       gap: 2rem;
     }
 
+    .project-item {
+      text-align: center;
+      max-width: 350px;
+      width: 100%;
+    }
+
     .project-img {
       width: 100%;
+      height: auto;
       object-fit: cover;
-      display: block;
-      margin-bottom: 15px;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease;
+      display: block;
     }
 
-    p {
-      font-size: 16px;
-      color: #333;
-      text-align: center;
-      margin: 10px auto;
-      width: 80%;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    .project-img:hover {
+      transform: scale(1.05);
     }
 
-    /* Новичок дублирует стили, потому что "не знает, как работает наследование" */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #333;
-    }
-
-    html {
-      font-size: 16px;
-      background-color: #f5f7fa;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    header {
-      padding: 2rem 1rem;
-      background: #570202;
-      color: #f2eee6;
-    }
-
-    header h1 {
-      font-size: 2rem;
-      font-weight: 300;
-      letter-spacing: -1px;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      color: #f2eee6;
-    }
-
-    nav {
-      text-align: center;
-      padding: 1rem 0;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    /* Адаптивная обёртка для видео */
+    .video-wrapper {
       position: relative;
-    }
-
-    nav a {
-      color: #2c3e50;
-      text-decoration: none;
-      padding: 0.8rem 1.8rem;
-      margin: 0 0.3rem;
-      border-radius: 6px;
-      display: inline-block;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* Соотношение 16:9 */
+      height: 0;
       overflow: hidden;
-    }
-
-    .content {
-      padding: 3rem 1rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .img-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-    }
-
-    .project-img {
-      width: 100%;
-      object-fit: cover;
-      display: block;
-      margin-bottom: 15px;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
 
     p {
@@ -181,47 +146,14 @@
       color: #333;
       text-align: center;
       margin: 10px auto;
-      width: 80%;
-    }
-
-    h2 {
-      color: #570202;
-      font-size: 2.2rem;
-      text-align: center;
-    }
-
-    p {
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
-
-    #main-header {
-      text-align: center;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-    }
-    div {
-      display: block;
-    }
-
-    img {
-      display: block;
-    }
-
-    .project-img {
       width: 100%;
-      display: block;
-      margin-bottom: 15px;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1 id="main-header" style="text-align: center;">Наши проекты</h1>
+    <h1 id="main-header">Наши проекты</h1>
   </header>
 
   <nav>
@@ -234,14 +166,32 @@
   <div class="content">
     <h2>Галерея объектов</h2>
     <div class="img-container">
-      <img src="https://lh3.googleusercontent.com/proxy/2sGlZEJxyZ7cTAzg-_XsGWSrfcb1tCASiiFpJI-qgbENTfu-qNJnUcyt-P0CNjr1gJ54KZp9HJq6z0S1IEb_CI3SL0C2gYrDF2xdzDFs4n7hEIodCw" alt="Коттедж в Минске" class="project-img">
-      <p>Коттедж в Минске — 2022 г.</p>
+      
+      <div class="project-item">
+        <img src="https://lh3.googleusercontent.com/proxy/2sGlZEJxyZ7cTAzg-_XsGWSrfcb1tCASiiFpJI-qgbENTfu-qNJnUcyt-P0CNjr1gJ54KZp9HJq6z0S1IEb_CI3SL0C2gYrDF2xdzDFs4n7hEIodCw" 
+             alt="Коттедж в Минске" class="project-img">
+        <p>Коттедж в Минске — 2022 г.</p>
+      </div>
 
-      <img src="https://megapolis-real.by/assets/images/BC/gomel-raton/download.jpg" alt="Офисный центр в Гомеле" class="project-img">
-      <p>Офисный центр в Гомеле — 2023 г.</p>
+      <div class="project-item">
+        <img src="https://megapolis-real.by/assets/images/BC/gomel-raton/download.jpg" 
+             alt="Офисный центр в Гомеле" class="project-img">
+        <p>Офисный центр в Гомеле — 2023 г.</p>
+      </div>
 
-      <img src="https://equator.by/images/2022/DSC_3065_small0.jpg" alt="Торговый центр в Бресте" class="project-img">
-      <p>Торговый центр в Бресте — 2024 г.</p>
+      <div class="project-item">
+        <div class="video-wrapper">
+          <!-- Пример видео с YouTube. Замените на нужный ID -->
+          <iframe src="https://www.youtube.com/embed/cliGJCUoQrg?si=QKl3XThrOhSy4J5c"
+                  title="Торговый центр в Бресте — 2024 г." 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen></iframe>
+
+          
+        </div>
+        <p>Торговый центр в Бресте — 2024 г.</p>
+      </div>
+
     </div>
   </div>
 
