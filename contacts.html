@@ -2,117 +2,289 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>СтройФАК — Контакты</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
   <style>
-    nav {
-      text-align: center;
-      padding: 1rem 0;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-      position: relative;
-      background-color: #ffffff;
+    :root {
+      --primary-color: #570202;
+      --primary-light: #f2eee6;
+      --text-primary: #2c3e50;
     }
-
-    nav a {
-      color: #2c3e50;
-      text-decoration: none;
-      padding: 0.8rem 1.8rem;
-      margin: 0 0.3rem;
-      border-radius: 6px;
-      display: inline-block;
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      color: var(--text-primary);
+    }
+    
+    .navbar-brand {
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: -1px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    .nav-link {
       font-weight: 500;
-      transition: color 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 0;
-      height: 3px;
-      background-color: #570202;
       transition: all 0.3s ease;
-      transform: translateX(-50%);
     }
-
-    nav a:hover {
-      color: #570202;
+    
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary-color) !important;
     }
-
-    nav a:hover::after {
-      width: 80%;
+    
+    .section-title {
+      font-size: 2rem;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
     }
-
-    /* Адаптивная обёртка для карты */
+    
+    .contact-form {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      margin-bottom: 2.5rem;
+    }
+    
+    .form-label {
+      font-weight: 500;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    
+    .form-control,
+    .form-control:focus {
+      border: 1px solid #ddd;
+      box-shadow: none;
+    }
+    
+    .form-control:focus {
+      border-color: var(--primary-color);
+    }
+    
+    .btn-submit {
+      background-color: var(--primary-color);
+      border: none;
+      padding: 0.6rem 1.5rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    
+    .btn-submit:hover {
+      background-color: #3a0101;
+    }
+    
     .map-wrapper {
       width: 100%;
-      max-width: 800px;
-      margin: 0 auto 2rem auto;
-      height: 0;
-      padding-bottom: 56.25%; /* 16:9 */
-      position: relative;
+      height: 400px;
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 2.5rem;
     }
-
+    
     .map-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
       border: none;
     }
+    
+    .office-address {
+      text-align: center;
+      font-size: 1.25rem;
+      color: var(--primary-color);
+      font-weight: 600;
+      margin: 1.5rem auto 2.5rem auto;
+      padding: 1.2rem;
+      background-color: white;
+      border: 2px dashed var(--primary-color);
+      border-radius: 8px;
+      max-width: 600px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    
+    .footer-section {
+      background-color: var(--primary-color);
+      color: var(--primary-light);
+      margin-top: 2rem;
+      border-radius: 8px;
+    }
+    
+    .footer-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 300;
+    }
+    
+    .footer-text {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    .footer-highlight {
+      font-style: italic;
+      color: #bdc3c7;
+      margin-top: 0.8rem;
+      font-size: 0.95rem;
+    }
+    
+    @media (min-width: 992px) {
+      .sidebar {
+        position: sticky;
+        top: 0;
+        height: calc(100vh - 56px);
+        overflow-y: auto;
+      }
+    }
   </style>
 </head>
-<body style="color: #333; margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f5f7fa;">
-
-  <header style="background: #570202; color: #f2eee6; padding: 20px 20px; text-align: center;">
-    <h1 style="color: #f2eee6;">Свяжитесь с нами</h1>
-  </header>
-
-  <nav>
-    <a href="index.html">Главная</a>
-    <a href="projects.html">Проекты</a>
-    <a href="services.html">Услуги</a>
-    <a href="contacts.html">Контакты</a>
+<body>
+  <!-- Header/Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <div class="container-fluid">
+      <a class="navbar-brand text-light" href="index.html">СтройФАК</a>
+      
+      <!-- Mobile toggle button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <!-- Offcanvas for mobile -->
+      <div class="offcanvas offcanvas-start bg-light" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header bg-danger">
+          <h5 class="offcanvas-title text-light" id="offcanvasNavbarLabel">Меню</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Главная</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="projects.html">Проекты</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Услуги</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="contacts.html">Контакты</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Desktop navigation -->
+      <div class="collapse navbar-collapse d-none d-lg-flex">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projects.html">Проекты</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Услуги</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="contacts.html">Контакты</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
-  <div style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
-    <h2 style="color: #570202; margin: 25px 0 15px; padding-bottom: 8px; text-align: center;">Форма обратной связи</h2>
-    <form style="background: #f9f9f9; padding: 2rem; border-radius: 12px; margin-bottom: 20px;">
-      <label style="display: block; margin-bottom: 16px; font-weight: 500; color: #570202;">
-        Имя: 
-        <input type="text" name="name" style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem;">
-      </label>
-      <label style="display: block; margin-bottom: 16px;">
-        Email: 
-        <input type="email" name="email" style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem;">
-      </label>
-      <label style="display: block; margin-bottom: 16px;">
-        Сообщение:<br>
-        <textarea name="message" rows="5" style="width: 100%; padding: 0.8rem; margin-top: 0.5rem; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem; resize: vertical;"></textarea>
-      </label>
-      <input type="submit" value="Отправить" style="background-color: #570202; color: #f2eee6; border: none; font-weight: 600; padding: 9px 24px; margin-top: 15px; border-radius: 6px; cursor: pointer;">
-    </form>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar for medium and large screens -->
+      <nav class="col-lg-2 col-md-3 sidebar d-none d-md-block">
+        <div class="p-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">
+                <i class="bi bi-house-door me-2"></i>Главная
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="projects.html">
+                <i class="bi bi-building me-2"></i>Проекты
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">
+                <i class="bi bi-tools me-2"></i>Услуги
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="contacts.html">
+                <i class="bi bi-telephone me-2"></i>Контакты
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
-    <!-- Карта -->
-    <div class="map-wrapper">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2277.823234852142!2d30.978352376225586!3d52.43550037185043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46d9e4c2a8e0e0e1%3A0x4c6a8b5f5c5b5c5b!2z0YPQu9C40YbQsCDQnNC-0YHQutCy0LA!5e0!3m2!1sru!2sby!4v1712345678901!5m2!1sru!2sby" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+      <!-- Main content -->
+      <main class="col-lg-10 col-md-9 col-12 p-4">
+        <h2 class="section-title">Форма обратной связи</h2>
+
+        <form class="contact-form">
+          <div class="mb-3">
+            <label for="name" class="form-label">Имя:</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Сообщение:</label>
+            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-submit w-100">Отправить</button>
+        </form>
+
+        <!-- Карта -->
+        <div class="map-wrapper">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2277.823234852142!2d30.978352376225586!3d52.43550037185043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46d9e4c2a8e0e0e1%3A0x4c6a8b5f5c5b5c5b!2z0YPQu9C40YbQsCDQnNC-0YHQutCy0LA!5e0!3m2!1sru!2sby!4v1712345678901!5m2!1sru!2sby" 
+            allowfullscreen 
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <h2 class="section-title text-center">Адрес офиса</h2>
+        <p class="office-address">г. Гомель, ул. Красноармейская, 4</p>
+
+        <!-- Footer Section -->
+        <footer class="footer-section p-4 text-center mt-5">
+          <h3 class="footer-title">Лицензии и партнёры</h3>
+          <p class="footer-text">Лицензия №123456 | Партнёры: 1xBet Строительный Факультет ПГС</p>
+          <p class="footer-highlight">Лицензия №123456 | Партнёры: 1xBet Строительный Факультет ПГС</p>
+        </footer>
+      </main>
     </div>
-
-    <h2 style="color: #570202; text-align: center; margin: 2rem 0 1rem;">Адрес офиса</h2>
-    <p id="office-address" style="text-align: center; font-size: 1.2rem; color: #570202; font-weight: 600; margin-top: 1rem; padding: 1.2rem; background-color: #fff; border: 2px dashed #570202; border-radius: 8px;">
-      г. Гомель, ул. Красноармейская, 4
-    </p>
   </div>
 
+  <!-- Action Buttons -->
+  <div class="container-fluid mb-4">
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+      <button class="btn btn-danger">
+        <i class="bi bi-telephone me-2"></i>Позвонить нам
+      </button>
+      <button class="btn btn-outline-danger">
+        <i class="bi bi-envelope me-2"></i>Написать email
+      </button>
+      <button class="btn btn-light border border-danger text-danger">
+        <i class="bi bi-geo-alt me-2"></i>Проложить маршрут
+      </button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -2,45 +2,253 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>СтройФАК — Главная</title>
-  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <style>
+    :root {
+      --primary-color: #570202;
+      --primary-light: #f2eee6;
+      --text-primary: #2c3e50;
+      --text-secondary: #555;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f7fa;
+      color: var(--text-primary);
+    }
+    
+    .navbar-brand {
+      font-size: 2rem;
+      font-weight: 300;
+      letter-spacing: -1px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    .nav-link {
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: var(--primary-color) !important;
+    }
+    
+    .nav-link.active {
+      color: var(--primary-color) !important;
+      font-weight: 600;
+    }
+    
+    .section-title {
+      font-size: 2.2rem;
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    
+    .project-img {
+      border-radius: 10px;
+      margin: 1.5rem auto;
+      display: block;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.4s ease;
+    }
+    
+    .project-img:hover {
+      transform: scale(1.05);
+    }
+    
+    .content-paragraph {
+      margin-bottom: 1rem;
+      text-align: justify;
+      color: var(--text-secondary);
+    }
+    
+    .content-paragraph:first-of-type::first-letter {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #171818;
+      float: left;
+      line-height: 0.8;
+      margin-right: 0.3rem;
+      padding-top: 0.1rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .footer-section {
+      background-color: var(--primary-color);
+      color: var(--primary-light);
+      margin-top: 2rem;
+      border-radius: 8px;
+    }
+    
+    .footer-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 300;
+    }
+    
+    .footer-text {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    .footer-highlight {
+      font-style: italic;
+      color: #bdc3c7;
+      margin-top: 0.8rem;
+      font-size: 0.95rem;
+    }
+    
+    .offcanvas-header .btn-close {
+      color: var(--primary-light);
+    }
+    
+    @media (min-width: 992px) {
+      .sidebar {
+        position: sticky;
+        top: 0;
+        height: calc(100vh - 56px);
+        overflow-y: auto;
+      }
+    }
+  </style>
 </head>
 <body>
-
-  <header>
-    <h1>СтройФАК</h1>
-  </header>
-
-  <nav>
-    <a href="index.html" class="nav-link">Главная</a>
-    <a href="projects.html" class="nav-link">Проекты</a>
-    <a href="services.html" class="nav-link">Услуги</a>
-    <a href="contacts.html" class="nav-link">Контакты</a>
+  <!-- Header/Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <div class="container-fluid">
+      <a class="navbar-brand text-light" href="index.html">СтройФАК</a>
+      
+      <!-- Mobile toggle button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <!-- Offcanvas for mobile -->
+      <div class="offcanvas offcanvas-start bg-light" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header bg-danger">
+          <h5 class="offcanvas-title text-light" id="offcanvasNavbarLabel">Меню</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Главная</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="projects.html">Проекты</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">Услуги</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacts.html">Контакты</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Desktop navigation -->
+      <div class="collapse navbar-collapse d-none d-lg-flex">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="projects.html">Проекты</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Услуги</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacts.html">Контакты</a>
+          </li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
-  <section>
-    <h2>Наши завершённые проекты</h2>
-    <img src="https://www.kermi.com/media/company/references/office_buildings/KARL-Turm_aussen.jpg" alt="Проект 3" class="project-img">
-  </section>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar for medium and large screens -->
+      <nav class="col-lg-2 col-md-3 sidebar d-none d-md-block">
+        <div class="p-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">
+                <i class="bi bi-house-door me-2"></i>Главная
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="projects.html">
+                <i class="bi bi-building me-2"></i>Проекты
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="services.html">
+                <i class="bi bi-tools me-2"></i>Услуги
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacts.html">
+                <i class="bi bi-telephone me-2"></i>Контакты
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
-  <section>
-    <h2>О компании</h2>
-    <p>Lorem ipsum dolor sit amet.</p>
-    <p>Cum, quasi voluptatibus. Unde, quas!</p>
-    <p>Temporibus id voluptatem modi repudiandae?</p>
-    <p>Reprehenderit ipsum molestiae saepe delectus?</p>
-    <p>Architecto nobis officia quae libero.</p>
-    <p>Vero iste necessitatibus suscipit consequuntur.</p>
-    <p>Dolor sapiente tenetur cupiditate necessitatibus.</p>
-    <p>Hic eos perferendis repellendus quam?</p>
-    <p>Atque ex placeat corrupti quaerat.</p>
-    <p>Sed nihil cupiditate magnam architecto.</p>
-  </section>
+      <!-- Main content -->
+      <main class="col-lg-10 col-md-9 col-12 p-4">
+        <!-- Projects Section -->
+        <section class="mb-5">
+          <h2 class="section-title text-center">Наши завершённые проекты</h2>
+          <img src="https://www.kermi.com/media/company/references/office_buildings/KARL-Turm_aussen.jpg" alt="Проект 3" class="project-img img-fluid">
+        </section>
 
-  <footer style="margin-top: 2rem;">
-    <h3>Лицензии и партнёры</h3>
-    <p id="footer-text">Лицензия №123456 | Партнёры: 1xBet Строительный Факультет ПГС</p>
-  </footer>
+        <!-- About Section -->
+        <section class="mb-5">
+          <h2 class="section-title text-center">О компании</h2>
+          <p class="content-paragraph">Lorem ipsum dolor sit amet.</p>
+          <p class="content-paragraph">Cum, quasi voluptatibus. Unde, quas!</p>
+          <p class="content-paragraph">Temporibus id voluptatem modi repudiandae?</p>
+          <p class="content-paragraph">Reprehenderit ipsum molestiae saepe delectus?</p>
+          <p class="content-paragraph">Architecto nobis officia quae libero.</p>
+          <p class="content-paragraph">Vero iste necessitatibus suscipit consequuntur.</p>
+          <p class="content-paragraph">Dolor sapiente tenetur cupiditate necessitatibus.</p>
+          <p class="content-paragraph">Hic eos perferendis repellendus quam?</p>
+          <p class="content-paragraph">Atque ex placeat corrupti quaerat.</p>
+          <p class="content-paragraph">Sed nihil cupiditate magnam architecto.</p>
+        </section>
 
+        <!-- Footer Section -->
+        <footer class="footer-section p-4 text-center">
+          <h3 class="footer-title">Лицензии и партнёры</h3>
+          <p class="footer-text">Лицензия №123456 | Партнёры: 1xBet Строительный Факультет ПГС</p>
+          <p class="footer-highlight">Лицензия №123456 | Партнёры: 1xBet Строительный Факультет ПГС</p>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="container-fluid mb-4">
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+      <button class="btn btn-danger">
+        <i class="bi bi-telephone me-2"></i>Связаться с нами
+      </button>
+      <button class="btn btn-outline-danger">
+        <i class="bi bi-file-earmark-text me-2"></i>Получить консультацию
+      </button>
+      <button class="btn btn-light border border-danger text-danger">
+        <i class="bi bi-building me-2"></i>Посмотреть проекты
+      </button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
